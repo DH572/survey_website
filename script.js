@@ -21,6 +21,32 @@ const activities = [
   ["Painting", "Creative Writing", "Sculpting", "Sewing"],
   ["Reading", "Meditating", "Listening to Music", "Stargazing"],
 ];
+const links = [
+  [
+    "https://www.britannica.com/sports/swimming-sport",
+    "https://www.rei.com/learn/expert-advice/hiking-for-beginners.html",
+    "https://www.rei.com/learn/series/intro-to-rock-climbing",
+    "https://www.britannica.com/art/dance",
+  ],
+  [
+    "https://www.chess.com/learn-how-to-play-chess",
+    "https://easy.poker/how-to-play-poker/",
+    "https://www.bhphotovideo.com/explora/computers/features/general-introduction-video-games-medium",
+    "https://www.nytimes.com/2020/12/12/at-home/jigsaw-puzzle-guide.html",
+  ],
+  [
+    "https://drawpaintacademy.com/painting-for-beginners/",
+    "https://english.duke.edu/courses/introduction-creative-writing#:~:text=Introduction%20to%20Creative%20Writing%20is,poems%2C%20plays%2C%20and%20prose.",
+    "https://flippednormals.com/downloads/introduction-to-sculpting/",
+    "https://crazylittleprojects.com/sewing-for-beginners-learn-to-sew/",
+  ],
+  [
+    "https://www.hmhco.com/programs/into-reading",
+    "https://www.mindful.org/how-to-meditate/",
+    "https://en.wikiversity.org/wiki/Introduction_to_music",
+    "https://skyandtelescope.org/astronomy-resources/stargazing-basics/",
+  ],
+];
 const q_a = [
   [
     "At the end of the day how would you like to feel?",
@@ -209,11 +235,12 @@ start_btn.addEventListener("click", function start() {
   start_message.remove();
 
   var text = document.createElement("text");
+  text.id = "text";
   text.innerHTML = q_a[x][0];
   document.body.appendChild(text);
 
   var div_options = document.createElement("div");
-  div_options.className = "options";
+  div_options.className = "container";
   document.body.appendChild(div_options);
   var option_1 = document.createElement("text");
   option_1.innerHTML = "A: " + q_a[x][1][0];
@@ -262,7 +289,12 @@ start_btn.addEventListener("click", function start() {
       let temp = [cri_1, cri_2, cri_3, cri_4];
       z_s = temp.indexOf(Math.max.apply(Math, temp));
 
-      var results = document.createElement("text");
+      var result_text = document.createElement("text");
+      result_text.innerHTML = "Congrats we recommend you try: ";
+      document.body.appendChild(result_text);
+
+      var results = document.createElement("a");
+      results.href = links[z][z_s];
       results.innerHTML = activities[z][z_s];
       document.body.appendChild(results);
     }
@@ -271,7 +303,7 @@ start_btn.addEventListener("click", function start() {
   document.body.appendChild(line_break1);
 
   var div = document.createElement("div");
-  div.className = "question";
+  div.className = "container";
   document.body.appendChild(div);
 
   var _btn = document.createElement("button");
@@ -280,8 +312,7 @@ start_btn.addEventListener("click", function start() {
   div.appendChild(_btn);
   const a = document.getElementById("btna");
   a.addEventListener("click", function onClick() {
-    a.style.backgroundColor = "salmon";
-    a.style.color = "white";
+    a.style.backgroundColor = "blue";
     athletic += 1;
     if (x > 4) {
       cri_1 += 1;
@@ -289,8 +320,7 @@ start_btn.addEventListener("click", function start() {
     next_question();
     setTimeout(() => {
       next_question2();
-      a.style.backgroundColor = "white";
-      a.style.color = "black";
+      a.style.backgroundColor = "black";
     }, 200);
     event.preventDefault();
   });
@@ -301,8 +331,7 @@ start_btn.addEventListener("click", function start() {
   div.appendChild(_btn2);
   const b = document.getElementById("btnb");
   b.addEventListener("click", function onClick() {
-    b.style.backgroundColor = "salmon";
-    b.style.color = "white";
+    b.style.backgroundColor = "red";
     strategic += 1;
     if (x > 4) {
       cri_2 += 1;
@@ -310,8 +339,7 @@ start_btn.addEventListener("click", function start() {
     next_question();
     setTimeout(() => {
       next_question2();
-      b.style.backgroundColor = "white";
-      b.style.color = "black";
+      b.style.backgroundColor = "black";
     }, 200);
     event.preventDefault();
   });
@@ -325,8 +353,7 @@ start_btn.addEventListener("click", function start() {
   div.appendChild(_btn3);
   const c = document.getElementById("btnc");
   c.addEventListener("click", function onClick() {
-    c.style.backgroundColor = "salmon";
-    c.style.color = "white";
+    c.style.backgroundColor = "green";
     creative += 1;
     if (x > 4) {
       cri_3 += 1;
@@ -334,8 +361,7 @@ start_btn.addEventListener("click", function start() {
     next_question();
     setTimeout(() => {
       next_question2();
-      c.style.backgroundColor = "white";
-      c.style.color = "black";
+      c.style.backgroundColor = "black";
     }, 200);
     event.preventDefault();
   });
@@ -346,8 +372,7 @@ start_btn.addEventListener("click", function start() {
   div.appendChild(_btn4);
   const d = document.getElementById("btnd");
   d.addEventListener("click", function onClick() {
-    d.style.backgroundColor = "salmon";
-    d.style.color = "white";
+    d.style.backgroundColor = "yellow";
     relaxing += 1;
     if (x > 4) {
       cri_4 += 1;
@@ -355,58 +380,8 @@ start_btn.addEventListener("click", function start() {
     next_question();
     setTimeout(() => {
       next_question2();
-      d.style.backgroundColor = "white";
-      d.style.color = "black";
+      d.style.backgroundColor = "black";
     }, 200);
     event.preventDefault();
   });
 });
-
-/*
-btn.addEventListener("click", function onClick() {
-  btn.style.backgroundColor = "salmon";
-  btn.style.color = "white";
-  athletic += 1;
-  setTimeout(() => {
-    btn.style.backgroundColor = "white";
-    btn.style.color = "black";
-  }, 100);
-  event.preventDefault();
-});
-
-btn2.addEventListener("click", function onClick() {
-  btn2.style.backgroundColor = "salmon";
-  btn2.style.color = "white";
-  strategic += 1;
-
-  setTimeout(() => {
-    btn2.style.backgroundColor = "white";
-    btn2.style.color = "black";
-  }, 100);
-  event.preventDefault();
-});
-
-btn3.addEventListener("click", function onClick() {
-  btn3.style.backgroundColor = "salmon";
-  btn3.style.color = "white";
-  creative += 1;
-
-  setTimeout(() => {
-    btn3.style.backgroundColor = "white";
-    btn3.style.color = "black";
-  }, 100);
-  event.preventDefault();
-});
-
-btn4.addEventListener("click", function onClick() {
-  btn4.style.backgroundColor = "salmon";
-  btn4.style.color = "white";
-  relaxing += 1;
-
-  setTimeout(() => {
-    btn4.style.backgroundColor = "white";
-    btn4.style.color = "black";
-  }, 100);
-  event.preventDefault();
-});
-*/

@@ -1,13 +1,46 @@
 * {
-  background-color: aqua;
+  background-color: white;
   font-family: sans-serif;
+  font-size: 26px;
+}
+
+h1 {
+  font-family: cursive;
+  background-color: lightgray;
+  padding: 10px 10px;
 }
 
 h2 {
-  color: green;
+  color: rgb(122, 111, 89);
+  padding: 20px 40px;
+}
+
+#start {
+  width: 200px;
+  height: 100px;
+}
+
+a {
+  font-size: 75px;
 }
 
 button {
   background-color: black;
-  color: antiquewhite;
+  color: rgb(250, 235, 215);
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.container {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#text {
+  font-size: larger;
+  font-weight: 200;
+  margin-bottom: 20px;
 }
